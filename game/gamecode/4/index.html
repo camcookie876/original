@@ -294,6 +294,19 @@
   </style>
 </head>
 <body>
+<div class="cc26-outdated-banner" style="
+  background:#fef2f2;
+  border-bottom:3px solid #dc2626;
+  padding:10px 16px;
+  font-family:system-ui, sans-serif;
+  color:#b91c1c;
+  font-size:0.95rem;
+  text-align:center;
+">
+  You are viewing an outdated version of this site. Some features may not work correctly.
+</div>
+
+
   <div class="app">
     <div class="header">
       <div class="brand">
@@ -656,5 +669,125 @@ toggleAutoHighlightBtn.addEventListener("click", () => {
     generateButton.addEventListener("click", generateSudoku);
     generateSudoku();
   </script>
+<!-- Camcookie Connect 26 Deletion Notice -->
+<div id="cc26-deletion-overlay" class="cc26-overlay" style="display:none;">
+  <div class="cc26-modal">
+    <h2 class="cc26-title">Camcookie Connect 26 Deletion Notice</h2>
+    <p class="cc26-date"><strong>Deletion Date:</strong> August 8</p>
+
+    <p>
+      Camcookie Connect 26 is being permanently deleted as we move to newer, better projects.
+      The system had many bugs and was taking up unnecessary space in the Camcookie database.
+    </p>
+
+    <p>
+      On <strong>August 8</strong>, all Camcookie Connect 26 data will be removed, including:
+    </p>
+
+    <ul>
+      <li>All chats</li>
+      <li>All accounts</li>
+      <li>All settings</li>
+      <li>All Connect 26 stored content</li>
+    </ul>
+
+    <p class="cc26-important">
+      If you have anything in Camcookie Connect 26 that you need, please copy it somewhere else
+      <strong>before August 8</strong>. After deletion, nothing can be recovered.
+    </p>
+
+    <p>
+      No other action is required. This deletion only affects Camcookie Connect 26.
+    </p>
+
+    <button id="cc26-ok-btn" class="cc26-button">OK</button>
+  </div>
+</div>
+
+<style>
+  .cc26-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .cc26-modal {
+    background: #ffffff;
+    max-width: 520px;
+    width: 90%;
+    padding: 24px 24px 20px;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    color: #111827;
+  }
+
+  .cc26-title {
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .cc26-date {
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    color: #4b5563;
+  }
+
+  .cc26-modal p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .cc26-modal ul {
+    margin: 0 0 12px 18px;
+    padding: 0;
+    font-size: 0.95rem;
+  }
+
+  .cc26-important {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .cc26-button {
+    margin-top: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  .cc26-button:hover {
+    background: #1d4ed8;
+  }
+</style>
+
+<script>
+  // Show popup only if user hasn't acknowledged it
+  const seen = localStorage.getItem("cc26_deletion_seen");
+
+  if (!seen) {
+    document.getElementById("cc26-deletion-overlay").style.display = "flex";
+  }
+
+  // OK button handler
+  document.getElementById("cc26-ok-btn")?.addEventListener("click", function () {
+    localStorage.setItem("cc26_deletion_seen", "true");
+    document.getElementById("cc26-deletion-overlay").style.display = "none";
+  });
+</script>
+
 </body>
 </html>
