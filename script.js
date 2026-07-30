@@ -163,3 +163,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// CONNECT 26:
+// Expiration date for Camcookie Connect 26
+const deletionDate = new Date("2026-08-08T00:00:00");
+
+// Today's date
+const now = new Date();
+
+// If Connect 26 is expired, automatically mark as verified
+if (now >= deletionDate) {
+  localStorage.setItem("cc26_deletion_seen", "true");
+}
+
+// Only show popup if user has NOT seen it AND Connect 26 is NOT expired
+const seen = localStorage.getItem("cc26_deletion_seen");
+
+if (!seen && now < deletionDate) {
+  document.getElementById("cc26-deletion-overlay").style.display = "flex";
+}
+
+// OK button handler (for users before expiration)
+document.getElementById("cc26-ok-btn")?.addEventListener("click", function () {
+  localStorage.setItem("cc26_deletion_seen", "true");
+  document.getElementById("cc26-deletion-overlay").style.display = "none";
+});
