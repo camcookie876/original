@@ -201,8 +201,6 @@
     <input id="username" placeholder="Username" autocomplete="username" />
     <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
 
-    <label id="termsWrap" style="display:none; margin-top:12px; font-size:14px;"><input id="agreeTerms" type="checkbox" style="width:auto; margin-right:8px;"> I agree to the <a href="/original/connect/26/terms/" target="_blank">Terms & Conditions</a>.</label>
-
     <div class="h-captcha" data-sitekey="2d84955c-0708-469a-aaf6-80ca0ba86d64" style="margin-top:12px; display:flex; justify-content:center;"></div>
 
     <button id="submitBtn">Sign in</button>
@@ -355,13 +353,12 @@
       authMode = mode;
       const signup = mode === "signup";
       $("termsWrap").style.display = signup ? "block" : "none";
-      $("submitBtn").textContent = signup ? "Create account" : "Sign in";
+      $("submitBtn").textContent = signup ? " " : "Sign in";
       $("errorMsg").textContent = "";
     }
 
     $("submitBtn").onclick = () => authMode === "signup" ? signup() : login();
     $("modeLogin").onclick = () => setMode("login");
-    $("modeSignup").onclick = () => setMode("signup");
     setMode("login");
   </script>
 <script src="/original/connect/26/camcookie-data.js"></script>

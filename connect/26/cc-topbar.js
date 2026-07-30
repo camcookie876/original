@@ -153,11 +153,8 @@ const TOPBAR_STYLES = `
 function ccCreateTopbarHTML() {
   const currentPath = window.location.pathname;
   const pages = [
-    { name: 'Apps', path: '/original/connect/26/apps/' },
     { name: 'Chat', path: '/original/connect/26/chat/' },
-    { name: 'Books', path: '/original/connect/26/books/' },
     { name: 'Draw', path: '/original/connect/26/draw/' },
-    { name: 'AI', path: '/original/connect/26/ai/' }
   ];
 
   const navItems = pages

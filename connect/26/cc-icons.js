@@ -13,32 +13,12 @@ const CC_ICONS = {
     </g>
   </svg>`,
 
-  books: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <g fill="none" stroke="#0099ff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="480" cy="512" r="360" />
-      <path d="M 300 350 L 470 350 Q 520 350 550 380 L 550 675 Q 520 645 470 645 L 300 645 Z" />
-      <path d="M 490 350 L 660 350 Q 710 350 740 380 L 740 675 Q 710 645 660 645 L 490 645 Z" />
-      <line x1="480" y1="350" x2="480" y2="675" />
-      <polygon points="860,450 1040,512 860,574" />
-    </g>
-  </svg>`,
-
   draw: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
     <g fill="none" stroke="#0099ff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="480" cy="512" r="360" />
       <path d="M 300 650 Q 350 400 600 350 Q 750 330 800 450" />
       <line x1="500" y1="700" x2="550" y2="500" />
       <line x1="550" y1="500" x2="700" y2="550" />
-      <polygon points="860,450 1040,512 860,574" />
-    </g>
-  </svg>`,
-
-  ai: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <g fill="none" stroke="#0099ff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="480" cy="512" r="360" />
-      <circle cx="380" cy="480" r="30" />
-      <circle cx="580" cy="480" r="30" />
-      <path d="M 380 550 Q 480 600 580 550" />
       <polygon points="860,450 1040,512 860,574" />
     </g>
   </svg>`,
@@ -51,21 +31,26 @@ const CC_ICONS = {
     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
   </svg>`,
 
-  trophy: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2" />
-    <path d="M6 9c0 1 .89 2 2 2h8c1.11 0 2-1 2-2" />
-    <path d="M9 5v4" />
-    <path d="M15 5v4" />
-    <path d="M6 13h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2" />
-  </svg>`,
+  trophy: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+  <path d="M12 16v-4"></path>
+  <path d="M12 8h.01"></path>
+</svg>
+`,
 
-  zap: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>`,
+  zap: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+  <path d="M12 16v-4"></path>
+  <path d="M12 8h.01"></path>
+</svg>
+`,
 
-  heart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>`,
+  heart: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+  <path d="M12 16v-4"></path>
+  <path d="M12 8h.01"></path>
+</svg>
+`,
 
   settings: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="12" cy="12" r="3" />
