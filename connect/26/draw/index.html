@@ -290,28 +290,12 @@
   <!-- LEFT: Tools -->
   <div class="panel">
     <h2>Tools</h2>
-
+    <div class="toolbar-group">
+      <p>Most tools removed because of deletion.</p>
+    </div>
     <div class="toolbar-group">
       <label for="titleInput">Title</label>
       <input id="titleInput" type="text" placeholder="Untitled drawing">
-    </div>
-
-    <div class="toolbar-group">
-      <label>Brush color</label>
-      <input type="color" id="colorPicker" value="#000000">
-    </div>
-
-    <div class="toolbar-group">
-      <label>Brush size: <span id="brushSizeLabel">4</span> px</label>
-      <input type="range" id="brushSize" min="1" max="40" value="4">
-    </div>
-
-    <div class="toolbar-group">
-      <label>Mode</label>
-      <div class="btn-row">
-        <button id="brushModeBtn" class="active">Brush</button>
-        <button id="eraserModeBtn">Eraser</button>
-      </div>
     </div>
 
     <div class="toolbar-group">
@@ -319,36 +303,14 @@
       <div class="btn-row">
         <button id="undoBtn">Undo</button>
         <button id="redoBtn">Redo</button>
-        <button id="clearBtn">Clear</button>
       </div>
     </div>
 
-    <div class="toolbar-group">
-      <label>Layers</label>
-      <div class="pill-list" id="layersList"></div>
-      <div class="btn-row" style="margin-top:6px;">
-        <button id="addLayerBtn">Add layer</button>
-        <button id="deleteLayerBtn" class="danger">Delete layer</button>
-      </div>
-      <div class="small" style="margin-top:4px;">Click a layer to select it.</div>
-    </div>
-
-    <div class="toolbar-group">
-      <label>Animation</label>
-      <div class="btn-row">
-        <button id="addFrameBtn">Add frame from canvas</button>
-        <button id="playAnimBtn">Play animation</button>
-        <button id="clearFramesBtn" class="danger">Clear frames</button>
-      </div>
-      <div class="small" style="margin-top:4px;">
-        Frames are saved inside the drawing as an animation.
-      </div>
-    </div>
 
     <div class="toolbar-group">
       <label>Save & Export</label>
       <div class="btn-row">
-        <button id="saveBtn" class="primary">Save drawing</button>
+        <button class="primary">Save drawing</button>
         <button id="exportPngBtn">Export PNG</button>
       </div>
       <div class="small" style="margin-top:4px;">
@@ -369,7 +331,7 @@
   <div class="panel">
     <h2>My Drawings</h2>
     <div class="small" style="margin-bottom:6px;">
-      Click a drawing to load it into the canvas.
+      Click a drawing to load it into the canvas. They may take a second to load.
     </div>
     <div id="gallery"></div>
   </div>
@@ -455,7 +417,7 @@ let lastX = 0;
 let lastY = 0;
 
 let brushColor = "#000000";
-let brushSize = 4;
+let brushSize = 0;
 let mode = "brush"; // "brush" | "eraser"
 
 let undoStack = [];
@@ -642,11 +604,6 @@ colorPicker.oninput = (e) => {
   brushColor = e.target.value;
 };
 
-brushSizeInput.oninput = (e) => {
-  brushSize = parseInt(e.target.value, 10);
-  brushSizeLabel.textContent = brushSize;
-};
-
 brushModeBtn.onclick = () => {
   mode = "brush";
   brushModeBtn.classList.add("active");
@@ -765,32 +722,7 @@ saveBtn.onclick = async () => {
     alert("Not logged in.");
     return;
   }
-
-  const title = titleInput.value || "Untitled";
-  const flattened = canvas.toDataURL("image/png");
-  const isAnimation = animationFrames.length > 0;
-
-  const payload = {
-    user_id: CURRENT_USER.id,
-    title,
-    is_animation: isAnimation,
-    image_data: flattened,
-    frames: isAnimation ? animationFrames : null
-  };
-
-  const { data, error } = await client
-    .from("drawings")
-    .insert(payload)
-    .select()
-    .maybeSingle();
-
-  if (error) {
-    console.error(error);
-    alert("Error saving drawing.");
-  } else {
-    alert("Drawing saved!");
-    loadGallery();
-  }
+  alert("Sorry, but because we are deleting this, you cant save. Please download your artwork.")
 };
 
 /* ============================================================

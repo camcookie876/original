@@ -315,6 +315,7 @@
     <div class="panel card">
       <h2>Something went wrong.</h2>
       <p>Reload this page to try again.</p>
+      <p>This error coulb be because of us deleting this service.</p>
       <p class="muted" id="errorText"></p>
     </div>
   </div>
@@ -329,15 +330,10 @@
           <div class="avatar" id="avatar">?</div>
           <div>
             <h2 id="welcomeName">Welcome</h2>
-            <p class="muted" id="orgLabel">No organization selected.</p>
           </div>
         </div>
 
         <div class="app-grid">
-          <div class="tile" id="tileNewChat">
-            <h3>New chat</h3>
-            <p class="muted">Create a chat with a name and a join code.</p>
-          </div>
           <div class="tile" id="tileOpenChats">
             <h3>Your chats</h3>
             <p class="muted">Open chats you’re already in.</p>
@@ -358,7 +354,6 @@
         <div class="chat-layout">
           <div class="chat-sidebar">
             <div class="inline">
-              <button id="newChatBtn">New chat</button>
               <button id="joinChatByCodeBtn" class="secondary">Join by code</button>
             </div>
             <p class="muted" style="font-size:.85rem;">Your chats</p>
@@ -374,7 +369,6 @@
               <div class="inline">
                 <button id="chatShareCodeBtn" class="secondary">Share code</button>
                 <button id="chatShareLinkBtn" class="secondary">Copy link</button>
-                <button id="chatInviteUserBtn" class="secondary">Invite by username</button>
                 <button id="deleteChatBtn" class="secondary" style="border-color:var(--danger);color:var(--danger);">Delete chat</button>
               </div>
             </div>
@@ -382,8 +376,7 @@
               <div class="muted" style="font-size:.9rem;">Select or create a chat to start messaging.</div>
             </div>
             <div class="input-bar">
-              <input id="msgInput" placeholder="Type a message…" disabled />
-              <button id="sendBtn" disabled>Send</button>
+              <p>Sorry, but you cant message. We are deleting this soon!</p>
             </div>
           </div>
         </div>
@@ -395,9 +388,8 @@
         <div class="settings-grid">
           <div class="card">
             <h3>Your organizations</h3>
-            <p class="muted" style="font-size:.85rem;">You can be in multiple organizations or none at all.</p>
+            <p class="muted" style="font-size:.85rem;">You can be in multiple organizations or none at all. REMOVED CREATE BUTTON</p>
             <div class="inline" style="margin-top:8px;">
-              <button id="createOrgBtn">New organization</button>
               <button id="joinOrgByCodeBtn" class="secondary">Join by code</button>
             </div>
             <div class="list" id="orgList" style="margin-top:10px;"></div>
@@ -672,39 +664,6 @@
       );
     }
 
-    async function createOrg() {
-      showModal(
-        "New organization",
-        `<label>Name</label><input id="orgNameInput" placeholder="Organization name" />`,
-        async () => {
-          const name = $("orgNameInput").value.trim();
-          if (!name) return;
-
-          const code = generateCode(10);
-          const share_code = code;
-          const share_code_hash = await hashString(code);
-
-          const { data, error } = await client
-            .from("organizations")
-            .insert({
-              name,
-              share_code,
-              share_code_hash
-            })
-            .select()
-            .single();
-
-          await client.from("org_members").insert({
-            org_id: data.id,
-            user_id: currentUser.id
-          });
-
-          await loadOrgs();
-          selectOrg(data);
-          popup("Organization created.");
-        }
-      );
-    }
 
     async function joinOrgByCode() {
       showModal(
@@ -813,45 +772,6 @@
         if (currentChat && currentChat.id === chat.id) btn.classList.add("active");
         list.appendChild(btn);
       });
-    }
-
-    async function createChat() {
-      showModal(
-        "New chat",
-        `<label>Chat name</label><input id="chatNameInput" placeholder="Chat name" />`,
-        async () => {
-          const name = $("chatNameInput").value.trim();
-          if (!name) return;
-
-          const code = generateCode(8);
-          const encrypted_code = await encryptString(code, currentKey);
-          const code_hash = await hashString(code);
-          const share_code = code;
-          const share_code_hash = await hashString(code);
-
-          const { data, error } = await client
-            .from("chats")
-            .insert({
-              name,
-              org_id: currentOrg ? currentOrg.id : null,
-              encrypted_code,
-              code_hash,
-              share_code,
-              share_code_hash
-            })
-            .select()
-            .single();
-
-          await client.from("chat_members").insert({
-            chat_id: data.id,
-            user_id: currentUser.id
-          });
-
-          await loadChats();
-          await openChat(data);
-          popup("Chat created.");
-        }
-      );
     }
 
     async function joinChatByCode() {
@@ -1155,11 +1075,9 @@
         if (params.org) await autoJoinOrgFromURL(params.org);
         if (params.chat) await autoJoinChatFromURL(params.chat);
 
-        $("tileNewChat").onclick = () => { setView("chatsView"); createChat(); };
         $("tileOpenChats").onclick = () => setView("chatsView");
         $("tileSpaces").onclick = () => setView("settingsView");
 
-        $("newChatBtn").onclick = createChat;
         $("joinChatByCodeBtn").onclick = joinChatByCode;
 
         $("createOrgBtn").onclick = createOrg;

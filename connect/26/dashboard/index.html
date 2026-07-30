@@ -483,6 +483,7 @@
   <div class="dashboard-container">
     <h1>Dashboard</h1>
     <p class="subtitle">Welcome back! Here's your activity overview.</p>
+    <p>You may encounter errors because we are removing this service. So most of the Create and Add functions have ben deleted.</p>
 
     <div class="dashboard-layout">
       <!-- Left Sidebar: Profile & Stats -->
@@ -490,45 +491,15 @@
         <!-- Profile Widget -->
         <div class="widget">
           <div class="profile-summary">
-            <img id="profilePhoto" class="profile-photo" alt="Profile">
+            <svg class="profile-photo" alt="Profile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
             <p class="profile-name" id="profileName"></p>
-            <p class="profile-status" id="profileStatus">Member</p>
           </div>
         </div>
 
-        <!-- Usage Score Widget -->
-        <div class="widget">
-          <h2>Usage Score</h2>
-          <div class="score-display">
-            <p class="score-value" id="scoreValue">0</p>
-            <p class="score-label">Total Score</p>
-          </div>
-          <div class="score-breakdown">
-            <div class="score-component">
-              <div class="score-component-value" id="scoreComponent1">0</div>
-              <div class="score-component-label">Friends</div>
-            </div>
-            <div class="score-component">
-              <div class="score-component-value" id="scoreComponent2">0</div>
-              <div class="score-component-label">Active</div>
-            </div>
-            <div class="score-component">
-              <div class="score-component-value" id="scoreComponent3">0</div>
-              <div class="score-component-label">Chats</div>
-            </div>
-            <div class="score-component">
-              <div class="score-component-value" id="scoreComponent4">0</div>
-              <div class="score-component-label">Activity</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Friends Widget -->
-        <div class="widget">
-          <h2>Friends (<span id="friendCount">0</span>)</h2>
-          <div class="friends-list" id="friendsList"></div>
-        </div>
-      </div>
 
       <!-- Center: Apps & Other Content -->
       <div class="main-content">
@@ -536,43 +507,19 @@
         <div class="widget">
           <h2>Quick Launch</h2>
           <div class="apps-grid">
-            <a href="/original/connect/26/apps/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
-              <div class="app-name">Apps</div>
-            </a>
             <a href="/original/connect/26/chat/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></div>
               <div class="app-name">Chat</div>
             </a>
-            <a href="/original/connect/26/books/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
-              <div class="app-name">Books</div>
-            </a>
             <a href="/original/connect/26/draw/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></div>
+              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></div>
               <div class="app-name">Draw</div>
-            </a>
-            <a href="/original/connect/26/ai/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m3.08-3.08l4.24-4.24M19.78 19.78l-4.24-4.24m-3.08-3.08l-4.24-4.24"></path></svg></div>
-              <div class="app-name">AI</div>
-            </a>
-            <a href="/original/connect/26/tools/" class="app-item">
-              <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 4.3a4 4 0 0 1 5.6 5.6L12 18.3 5.7 12l9-7.7z"></path><path d="M7 7l10 10"></path></svg></div>
-              <div class="app-name">Tools</div>
             </a>
             <a href="/original/connect/26/settings/" class="app-item">
               <div class="app-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m3.08-3.08l4.24-4.24M19.78 19.78l-4.24-4.24m-3.08-3.08l-4.24-4.24"></path></svg></div>
               <div class="app-name">Settings</div>
             </a>
           </div>
-        </div>
-      </div>
-
-      <!-- Right: Leaderboard -->
-      <div class="leaderboard-panel">
-        <div class="widget">
-          <h2>🏆 Leaderboard</h2>
-          <div class="leaderboard-list" id="leaderboardList"></div>
         </div>
       </div>
     </div>
